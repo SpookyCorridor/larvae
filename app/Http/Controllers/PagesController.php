@@ -11,11 +11,16 @@ class PagesController extends Controller
 {
     public function about()
     {
-    	$data = [
-    		"first" => "Laura",
-    		"last" => "Velle"
-    	];
-    	return view('pages.about', $data); //same as pages/about 
+    	$movies = [ //laravel collection - example of dataset info from somewhere 
+    		'Frank', 'Event Horizon', 'Labyrinth' 
+    	]; 
+
+    	return view('pages.about', compact('movies')); //same as pages/about 
+    }
+
+    public function contact()
+    {
+    	return view('pages.contact'); 
     }
 }
 

@@ -5,6 +5,12 @@
 	<title>Document</title>
 </head>
 <body>
-	@yield('content')
+	<div class="container">
+		@yield('content')
+	</div>
+	
+	<footer>
+		@yield('footer')
+	</footer>
 </body>
 </html>
