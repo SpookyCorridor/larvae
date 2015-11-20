@@ -12,8 +12,8 @@ class PagesController extends Controller
     public function about()
     {
     	$data = [
-    		"first" => "Mochi",
-    		"last" => "Tsuki"
+    		"first" => "Laura",
+    		"last" => "Velle"
     	];
     	return view('pages.about', $data); //same as pages/about 
     }
