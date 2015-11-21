@@ -15,4 +15,9 @@ Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact'); 
 
 Route::get('articles', 'ArticlesController@index'); 
-Route::get('articles/{id}', 'ArticlesController@show'); 
+Route::get('articles/create', 'ArticlesController@create'); 
+// anything explicit must come before the wildcard or 
+// the wildcart will take its places
+Route::get('articles/{id}', 'ArticlesController@show');
+Route::post('articles', 'ArticlesController@store'); 
+
