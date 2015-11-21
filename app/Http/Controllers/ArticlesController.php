@@ -15,4 +15,14 @@ class ArticlesController extends Controller
 
     	return view('articles.index', compact('articles')); 
     }
+
+    public function show($id)
+    {
+    	$article = Article::findOrFail($id); //renders 404 page if not found 
+
+    	// dd($article) will show null if non existing id or verbose information 
+    	// on existing information 
+
+    	return view('articles.show', compact('article')); 
+    }
 }
