@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Request; 
 use App\Article; //importing model created 
 use Carbon\Carbon; 
 use App\Http\Requests;
+use App\Http\Requests\CreateArticleRequest; 
 use App\Http\Controllers\Controller;
 
 class ArticlesController extends Controller
 {
     public function index()
     {
-    	$articles = Article::latest('published_at')->get(); 
+    	$articles = Article::latest('published_at')->published()->get(); 
     	// latest is a symbol for: 
     	// Article::order_by('published_at', 'desc')->get(); 
+
+    	//published() is a scope we made on Article model 
 
     	return view('articles.index', compact('articles')); 
     }
@@ -23,9 +25,7 @@ class ArticlesController extends Controller
     {
     	$article = Article::findOrFail($id); //renders 404 page if not found 
 
-    	// dd($article) will show null if non existing id or verbose information 
-    	// on existing information 
-
+    	
     	return view('articles.show', compact('article')); 
     }
 
@@ -34,12 +34,13 @@ class ArticlesController extends Controller
     	return view('articles.create'); 
     }
 
-    public function store()
+    public function store(CreateArticleRequest $request) //validation 
+    //validation is fired and if not valid, this block will not execute
+    //and no article will be created. If it is valid, it will return with
+    //the $request variable to use in the block. 
     {
-    	$input = Request::all(); // from use Request injection above to get 
-    													 // all headers from form request 
-    	$input['published_at'] = Carbon::now(); 
-    	Article::create($input); 
+    
+    	Article::create($request->all()); 
 
     	return redirect('articles'); 
     }
