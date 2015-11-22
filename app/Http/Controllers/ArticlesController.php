@@ -29,11 +29,9 @@ class ArticlesController extends Controller
     	return view('articles.index', compact('articles')); 
     }
 
-    public function show($id)
+    public function show(Article $article) //reference the underlying object
+                             // and let laravel do the querying work for you 
     {
-    	$article = Article::findOrFail($id); //renders 404 page if not found 
-
-    	
     	return view('articles.show', compact('article')); 
     }
 
@@ -56,17 +54,15 @@ class ArticlesController extends Controller
     	return redirect('articles'); 
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
-        $article = Article::findOrFail($id); 
         return view('articles.edit', compact('article'));
     }
 
-    public function update($id, ArticleRequest $request)
+    public function update(Article $article, ArticleRequest $request)
     //laravel uses reflection to see: hey, they want a request object
     //so I'll pass it in for them. 
-    {
-        $article = Article::findOrFail($id); 
+    { 
         $article->update($request->all()); 
 
         return redirect('articles'); 
