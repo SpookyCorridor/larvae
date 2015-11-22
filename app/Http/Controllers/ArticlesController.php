@@ -11,8 +11,15 @@ use App\Http\Controllers\Controller;
 
 class ArticlesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]); 
+    }
+
     public function index()
     {
+
     	$articles = Article::latest('published_at')->published()->get(); 
     	// latest is a symbol for: 
     	// Article::order_by('published_at', 'desc')->get(); 
@@ -40,8 +47,11 @@ class ArticlesController extends Controller
     //and no article will be created. If it is valid, it will return with
     //the $request variable to use in the block. 
     {
-    
-    	Article::create($request->all()); 
+        //create a new article with attributes from form
+        $article = new Article($request->all()); 
+        //get authenticated users articles and save a new one 
+        //calling method form of articles to chaining 
+        \Auth::user()->articles()->save($article); 
 
     	return redirect('articles'); 
     }
