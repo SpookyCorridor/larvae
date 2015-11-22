@@ -15,7 +15,7 @@ class Article extends Model
 
     protected $dates = ['published_at']; // part of laravel's model & makes it
     																		 // a carbon instance 
-
+    //query scope
     public function scopePublished($query)
     {
     	$query->where('published_at', '<=', Carbon::now()); 
@@ -26,9 +26,16 @@ class Article extends Model
     	$query->where('published_at', '>', Carbon::now()); 
     }
 
+    //mutator 
     public function setPublishedAtAttribute($date)
     {
     	$this->attributes['published_at'] = Carbon::parse($date); 
     	// add time set to midnight with carbon parse 
+    }
+
+    //owner, writer...could be named anything
+    public function user() 
+    {
+        return $this->belongsTo('App\User'); 
     }
 }
