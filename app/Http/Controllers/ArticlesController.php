@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Request; 
 use App\Article; //importing model created 
+use App\Tag; 
 use Carbon\Carbon; 
 use App\Http\Requests;
 use App\Http\Requests\ArticleRequest; 
@@ -37,7 +38,8 @@ class ArticlesController extends Controller
 
     public function create() 
     {
-    	return view('articles.create'); 
+        $tags = Tag::lists('name', 'id'); 
+    	return view('articles.create', compact('tags')); 
     }
 
     public function store(ArticleRequest $request) //validation 
@@ -46,13 +48,14 @@ class ArticlesController extends Controller
     //the $request variable to use in the block. 
     {
         //create a new article with attributes from form
-        $article = new Article($request->all()); 
         //get authenticated users articles and save a new one 
         //calling method form of articles to chaining 
         
-        \Auth::user()->articles()->save($article); 
-     //Auth::user()->articles()->create($request->all()); yields same result
+        $article = \Auth::user()->articles()->create($request->all());
 
+        //attach tags using many-to-many attach method to pivot table 
+        //input grabs the tags selected by user from form 
+        $article->tags()->attach($request->input('tag_list')); 
 
         //temporary message to flash on the screen thru layout 
         session()->flash('flash_message', 'Your article has been created!'); 
@@ -62,7 +65,8 @@ class ArticlesController extends Controller
 
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        $tags = Tag::lists('name', 'id'); 
+        return view('articles.edit', compact('article', 'tags'));
     }
 
     public function update(Article $article, ArticleRequest $request)
@@ -70,6 +74,7 @@ class ArticlesController extends Controller
     //so I'll pass it in for them. 
     { 
         $article->update($request->all()); 
+        $article->tags()->sync($request->input('tag_list')); 
 
         return redirect('articles'); 
     }

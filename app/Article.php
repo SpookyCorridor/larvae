@@ -46,4 +46,9 @@ class Article extends Model
         //to be there by default and will throw an sql error from it not 
         //adding them 
     }
+
+    public function getTagListAttribute()
+    {
+        return $this->tags->lists('id')->all(); 
+    }
 }
