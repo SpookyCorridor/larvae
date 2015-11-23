@@ -39,4 +39,11 @@ class Article extends Model
         return $this->belongsTo('App\User'); 
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag')->withTimestamps(); 
+        //withTimestamps added because Laravel doesnt expect our timestamps
+        //to be there by default and will throw an sql error from it not 
+        //adding them 
+    }
 }
