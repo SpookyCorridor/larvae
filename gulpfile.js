@@ -12,13 +12,15 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss')
+    mix.sass('app.scss', 'resources/css') //second arg = output 
     .styles([
-    	'vendor/normalize.css',
-    	'app.css'
-    ], 'public/output/larvae.css', 'public/css')
+    	'libs/bootstrap.min.css',
+    	'app.css',
+    	'libs/select2.min.css', 
+    ], 'public/output/larvae.css', 'resources/css')
     .scripts([
-    	'vendor/jquery.js',
-    	'main.js'
-    ], 'public/output/scripts.js', 'public/js'); 
+    	'libs/jquery.min.js',
+    	'libs/bootstrap.min.js',
+    	'libs/select2.min.js',
+    ], 'public/output/scripts.js', 'resources/js'); 
 });
