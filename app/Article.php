@@ -38,4 +38,5 @@ class Article extends Model
     {
         return $this->belongsTo('App\User'); 
     }
+
 }

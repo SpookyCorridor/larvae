@@ -7,11 +7,20 @@
 </head>
 <body>
 	<div class="container">
+
+		@include('partials.flash')
+
 		@yield('content')
 	</div>
 	
 	<footer>
 		@yield('footer')
 	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+	<script>
+		$('div.alert').not('.alert-important').delay(3000).slideUp(300); 
+	</script>
 </body>
 </html>

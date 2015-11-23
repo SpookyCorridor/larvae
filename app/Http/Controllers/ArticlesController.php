@@ -49,8 +49,14 @@ class ArticlesController extends Controller
         $article = new Article($request->all()); 
         //get authenticated users articles and save a new one 
         //calling method form of articles to chaining 
+        
         \Auth::user()->articles()->save($article); 
+     //Auth::user()->articles()->create($request->all()); yields same result
 
+
+        //temporary message to flash on the screen thru layout 
+        session()->flash('flash_message', 'Your article has been created!'); 
+   
     	return redirect('articles'); 
     }
 
