@@ -42,20 +42,13 @@ class ArticlesController extends Controller
     	return view('articles.create', compact('tags')); 
     }
 
-    public function store(ArticleRequest $request) //validation 
+    public function store(ArticleRequest $request) //validation ArticleRequest
     //validation is fired and if not valid, this block will not execute
     //and no article will be created. If it is valid, it will return with
     //the $request variable to use in the block. 
     {
-        //create a new article with attributes from form
-        //get authenticated users articles and save a new one 
-        //calling method form of articles to chaining 
         
-        $article = \Auth::user()->articles()->create($request->all());
-
-        //attach tags using many-to-many attach method to pivot table 
-        //input grabs the tags selected by user from form 
-        $article->tags()->attach($request->input('tag_list')); 
+        $this->createArticle($request); 
 
         //temporary message to flash on the screen thru layout 
         session()->flash('flash_message', 'Your article has been created!'); 
@@ -74,8 +67,27 @@ class ArticlesController extends Controller
     //so I'll pass it in for them. 
     { 
         $article->update($request->all()); 
-        $article->tags()->sync($request->input('tag_list')); 
+        $this->syncTags($article, $request->input('tag_list')); 
 
         return redirect('articles'); 
+    }
+
+    private function syncTags(Article $article, array $tags)
+    {
+        //sync tags using many-to-many sync method to pivot table 
+        //input grabs the tags selected by user from form 
+        $article->tags()->sync($tags); 
+    }
+
+    private function createArticle(ArticleRequest $request)
+    {
+        /* create a new article with attributes from form
+           get authenticated users articles and save a new one 
+           calling method form of articles to chaining */ 
+
+        $article = \Auth::user()->articles()->create($request->all());
+        $this->syncTags($article, $request->input('tag_list')); 
+
+        return $article; 
     }
 }
