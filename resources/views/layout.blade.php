@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="/output/larvae.css">
 </head>
 <body>
+	@include('partials._navbar')
 	<div class="container">
 
 		@include('partials.flash')

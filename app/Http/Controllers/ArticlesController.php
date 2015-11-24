@@ -26,7 +26,6 @@ class ArticlesController extends Controller
     	// Article::order_by('published_at', 'desc')->get(); 
 
     	//published() is a scope we made on Article model 
-
     	return view('articles.index', compact('articles')); 
     }
 

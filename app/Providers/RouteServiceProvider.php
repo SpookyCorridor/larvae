@@ -28,7 +28,10 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot($router);
         //articles is a wildcard name we bind to App\Article which is the model
-        $router->model('articles', 'App\Article'); 
+        //$router->model('articles', 'App\Article'); 
+        $router->bind('articles', function($id) {
+            return \App\Article::published()->findOrFail($id); 
+        }); 
     }
 
     /**

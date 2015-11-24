@@ -51,4 +51,10 @@ class Article extends Model
     {
         return $this->tags->lists('id')->all(); 
     }
+
+    public function getPublishedAtAttribute($date)
+    {
+        //ensure we have an instance of Carbon
+        return Carbon::parse($date)->format('Y-m-d'); 
+    }
 }
