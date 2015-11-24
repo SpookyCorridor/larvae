@@ -65,8 +65,9 @@ class ArticlesController extends Controller
     //laravel uses reflection to see: hey, they want a request object
     //so I'll pass it in for them. 
     { 
+        $tags = (array) $request->input('tag_list'); 
         $article->update($request->all()); 
-        $this->syncTags($article, $request->input('tag_list')); 
+        $this->syncTags($article, $tags); 
 
         return redirect('articles'); 
     }
@@ -75,7 +76,13 @@ class ArticlesController extends Controller
     {
         //sync tags using many-to-many sync method to pivot table 
         //input grabs the tags selected by user from form 
-        $article->tags()->sync($tags); 
+        if (count($tags))
+        {
+            $article->tags()->sync($tags); 
+        } else {
+            $tags = []; 
+            $article->tags()->sync($tags); 
+        }
     }
 
     private function createArticle(ArticleRequest $request)
@@ -85,8 +92,10 @@ class ArticlesController extends Controller
            calling method form of articles to chaining */ 
 
         $article = \Auth::user()->articles()->create($request->all());
-        $this->syncTags($article, $request->input('tag_list')); 
-
+        $tags = (array) $request->input('tag_list'); 
+       
+        $this->syncTags($article, $tags); 
+        
         return $article; 
     }
 }
