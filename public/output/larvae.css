@@ -8325,8 +8325,8 @@ button.close {
     display: none!important;
   }
 }
-body {
-  padding-top: 60px;
+.article-title a {
+  font-size: 3 rem;
 }
 .select2-container {
   box-sizing: border-box;

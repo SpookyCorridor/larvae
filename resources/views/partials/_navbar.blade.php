@@ -16,6 +16,7 @@
 
             <ul class="nav navbar-nav navbar-right">
               <li>{!! link_to_action('ArticlesController@show', $latest->title, [$latest->id]) !!}</li>             
+              <!-- link_to_action(action (/article), title of link, route after / so... article/16 for ex ) --> 
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

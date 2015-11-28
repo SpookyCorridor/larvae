@@ -50,6 +50,7 @@ class Article extends Model
     public function getTagListAttribute()
     {
         return $this->tags->lists('id')->all(); 
+        //all to return array instead of collection 
     }
 
     public function getPublishedAtAttribute($date)
