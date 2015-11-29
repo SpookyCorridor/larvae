@@ -19,6 +19,8 @@ Route::resource('articles', 'ArticlesController');
 Route::get('tags/{tags}', 'TagsController@show'); 
 
 Route::get('bookmark/{article}', 'FavoritesController@store'); 
+Route::get('/bookmarks', 'FavoritesController@show'); 
+Route::get('/bookmarks/remove/{id}', 'FavoritesController@delete');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

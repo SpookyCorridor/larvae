@@ -18,6 +18,10 @@
 		</ul>
 	@endunless
 
-	<a href="{{ url('bookmark', [$article]) }}">test</a>
+	@if ($user)
+		<a id="remove-bookmark" href="{{ url('bookmarks/remove', [$article]) }}">unbookmark</a>
+	@else
+		<a href="{{ url('bookmark', [$article]) }}">bookmark</a> 
+	@endif
 
 @stop 

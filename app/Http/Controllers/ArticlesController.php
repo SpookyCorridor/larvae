@@ -31,8 +31,12 @@ class ArticlesController extends Controller
 
     public function show(Article $article) //reference the underlying object
                              // and let laravel do the querying work for you 
-    {
-    	return view('articles.show', compact('article')); 
+    {  
+        $user = false; 
+        if (\Auth::user()->favorites()->find(1)) {
+            $user = true; 
+        } 
+    	return view('articles.show', compact('article', 'user')); 
     }
 
     public function create() 

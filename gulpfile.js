@@ -22,5 +22,6 @@ elixir(function(mix) {
     	'libs/jquery.min.js',
     	'libs/bootstrap.min.js',
     	'libs/select2.min.js',
+        'main.js',
     ], 'public/output/scripts.js', 'resources/js'); 
 });
