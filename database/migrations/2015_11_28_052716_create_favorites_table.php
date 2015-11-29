@@ -14,16 +14,21 @@ class CreateFavoritesTable extends Migration
     {
         Schema::create('favorites', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('article_id')->unsigned()->index(); 
-            $table->integer('user_id')->unsigned()->index(); 
+            $table->integer('article_id')->unsigned()->index();
+            $table->integer('count')->unsigned(); 
             $table->timestamps();
-
-
-            $table->foreign('user_id')->references('id')
-                                            ->on('users')
-                                            ->onDelete('cascade'); 
         });
 
+        Schema::create('favorite_user', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned()->index();
+            $table->integer('favorite_id')->unsigned()->index();
+
+            $table->foreign('user_id')->references('id')
+                                      ->on('users')
+                                      ->onDelete('cascade');
+        });
+
+             
     }
 
     /**
@@ -34,5 +39,6 @@ class CreateFavoritesTable extends Migration
     public function down()
     {
         Schema::drop('favorites');
+        Schema::drop('favorite_user');
     }
 }

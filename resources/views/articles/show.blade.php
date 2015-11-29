@@ -17,4 +17,7 @@
 			@endforeach
 		</ul>
 	@endunless
+
+	<a href="{{ url('bookmark', [$article]) }}">test</a>
+
 @stop 
