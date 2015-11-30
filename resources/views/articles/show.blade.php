@@ -1,10 +1,10 @@
 @extends('layout')
-
+@include('partials._navbar')
 @section('content')
 
-	<h1>{{ $article->title }}</h1>
+	<h1 class="article-title">{{ $article->title }}</h1>
 	<hr>
-	<article>
+	<article class="article-body">
 		{{ $article->body }}
 	</article>
 

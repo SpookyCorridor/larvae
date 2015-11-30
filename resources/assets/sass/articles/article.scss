@@ -1,0 +1,23 @@
+#title {
+	color: tomato; 
+	text-align: center;
+}
+
+.article-details {
+	color: red; 
+}
+
+.article-title {
+	a {
+		color: black; 
+		font-size: 3.5rem;
+		font-weight: bold; 
+	}
+}
+
+.article-body {
+	line-height: 1.5;
+	overflow:hidden;
+  text-overflow:ellipsis;
+}
+

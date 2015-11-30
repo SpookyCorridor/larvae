@@ -1,5 +1,5 @@
 @extends('layout')
-
+@include('partials._navbar')
 @section('content')
 	<h1>Write a new article</h1>
 

@@ -1,6 +1,6 @@
 @extends('layout')
 
-@include('partials._navbar')
+@include('bookmarks.partials._navbar')
 @section('content')
 
 	@foreach ($articles as $article)

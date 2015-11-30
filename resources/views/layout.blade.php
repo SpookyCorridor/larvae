@@ -7,7 +7,6 @@
 </head>
 <body>
 	
-	@include('partials._navbar')
 	<div class="container">
 
 		@include('partials.flash')

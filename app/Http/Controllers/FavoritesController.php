@@ -57,7 +57,7 @@ class FavoritesController extends Controller
 
     	$articles = Article::findMany($favorites->lists('article_id'));  
  
-    	return view('articles.index', compact('articles')); 
+    	return view('bookmarks.index', compact('articles')); 
     }
 
 }
