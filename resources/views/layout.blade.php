@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link href='https://fonts.googleapis.com/css?family=Merriweather|Lato' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/output/larvae.css">
 </head>
 <body>

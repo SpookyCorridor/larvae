@@ -1,23 +1,34 @@
-#title {
-	color: tomato; 
-	text-align: center;
-}
-
-.article-details {
-	color: red; 
+#latest {
+	font-weight: 800;
+	color: $plum; 
 }
 
 .article-title {
-	a {
-		color: black; 
-		font-size: 3.5rem;
-		font-weight: bold; 
+	h2 {
+		color: pink;
 	}
+	a { 
+		text-decoration: none;
+		font-size: 3.5rem;
+		font-family: 'Lato', 'Helvetica', sans-serif;
+	}
+
+}
+
+.article-details {
+	color: $plum;
+}
+
+.article-preview {
+	line-height: 1.6; 
+	font-size: 1.6rem; 
 }
 
 .article-body {
-	line-height: 1.5;
-	overflow:hidden;
-  text-overflow:ellipsis;
+	line-height: 1.7;
+	font-size: 1.7rem;
 }
+
+
+
 

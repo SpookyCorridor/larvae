@@ -1,20 +1,67 @@
-#title {
-  color: tomato;
-  text-align: center;
+body {
+  font-family: 'Merriweather', 'Lucidia Grande', serif;
+  color: #313131;
+  background-color: #fcfcfc;
 }
 
-.article-details {
-  color: red;
+a {
+  color: #313131;
+}
+
+a:hover {
+  color: #888098;
+  text-decoration: none;
+}
+
+.navbar-default .navbar-brand {
+  color: #888098;
+}
+
+.purple {
+  color: #888098;
+}
+
+#latest {
+  font-weight: 800;
+  color: #888098;
+}
+
+.article-title h2 {
+  color: pink;
 }
 
 .article-title a {
-  color: black;
+  text-decoration: none;
   font-size: 3.5rem;
-  font-weight: bold;
+  font-family: 'Lato', 'Helvetica', sans-serif;
+}
+
+.article-details {
+  color: #888098;
+}
+
+.article-preview {
+  line-height: 1.6;
+  font-size: 1.6rem;
 }
 
 .article-body {
-  line-height: 1.5;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.7;
+  font-size: 1.7rem;
+}
+
+.tags li {
+  list-style: none;
+  display: inline;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.tags li:not(:last-child) {
+  border-right: 1px dotted #313131;
+}
+
+.tags a {
+  text-decoration: none;
+  color: #888098;
 }
