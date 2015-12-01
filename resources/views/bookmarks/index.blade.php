@@ -3,6 +3,9 @@
 @include('bookmarks.partials._navbar')
 @section('content')
 
+<article class="article col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1">
+		<a href="{{ url('/articles', 'create') }}"><input type="button" class="btn btn-primary" value="publish article"></a>
+</article>
 	@foreach ($articles as $article)
 		<article class="article col-md-8 col-md-offset-2">
 			<h2 class="article-title">

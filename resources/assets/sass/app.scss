@@ -20,5 +20,14 @@ a:hover {
 .purple {
 	color: $plum; 
 }
+
+.btn:hover {
+	background-color: $plum-darker;
+}
+.btn-primary {
+	background-color: $plum;
+	border-color: $plum-darker;
+}
+
 @import 'articles/article';
 @import 'articles/tag'; 

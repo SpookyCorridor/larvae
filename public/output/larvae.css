@@ -8348,6 +8348,15 @@ a:hover {
   color: #888098;
 }
 
+.btn:hover {
+  background-color: #797389;
+}
+
+.btn-primary {
+  background-color: #888098;
+  border-color: #797389;
+}
+
 #latest {
   font-weight: 800;
   color: #888098;
