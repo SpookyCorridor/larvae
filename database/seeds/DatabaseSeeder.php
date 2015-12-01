@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use App\Tag; 
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,8 +15,11 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call(UserTableSeeder::class);
+        Tag::truncate(); 
 
+        factory(Tag::class, 40)->create(); 
+        // $this->call(UserTableSeeder::class);
+        
         Model::reguard();
     }
 }
