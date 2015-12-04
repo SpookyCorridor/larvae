@@ -11,9 +11,9 @@ This is a demo app I created in order to help myself learn Laravel. It allows yo
 - [links](#links)
 - [intro](#intro)
 - [Installation](#installation)
-- [Getting Started](#editor)
-  * [publishing articles](#basic)
-  * [bookmarks](#advanced)
+- [Getting Started](#Getting Started)
+  * [publishing articles](#publishing articles)
+  * [bookmarks](#bookmarks)
 - [Technologies](#technologies)
 - [TODO](#todo)
 
@@ -56,17 +56,6 @@ You can view the home index of published articles as a guest but for everything 
 - You can also see and click through tags to find related articles
 
 <img src="http://i.imgur.com/2ldTZur.png?1"> 
-
-### Advanced
-
-Loom's customization will always continue to improve 
-
-<img src="http://i.imgur.com/s3GKWnG.png">
-
-- Fully functional gutter with linting 
-- auto-closing tags
-- soft tabs & tab size
-- adjustable font size 
 
 # Technologies :floppy_disk:
 
