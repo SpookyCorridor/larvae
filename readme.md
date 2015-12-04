@@ -1,27 +1,95 @@
-## Laravel PHP Framework
+Larvae
+===============
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+This is a demo app I created in order to help myself learn Laravel. It allows you to post articles and tag and/or bookmark them. You may view all your bookmarked articles or find articles with certain tags. There is also a publishing feature which allows you to choose a later date for an article to be shown publicly.  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+<img src="http://i.imgur.com/mMppO6h.png?1">
+:notebook_with_decorative_cover: Table of Contents :notebook_with_decorative_cover:
+=================
 
-## Official Documentation
+- [links](#links)
+- [intro](#intro)
+- [Installation](#installation)
+- [Getting Started](#editor)
+  * [publishing articles](#basic)
+  * [bookmarks](#advanced)
+- [Technologies](#technologies)
+- [TODO](#todo)
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+=====
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+# Links
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+[Live Website](http://frozen-hollows-8289.herokuapp.com/)
 
-### License
+# Intro
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+What better way to learn PHP and Laravel than to just dive right in? Larvae has a bunch of cool features like publishing dates, tags, bookmarks, and a highlight feature for the latest article. Going through this project gave me a better understanding of "magic" that happens behind the scenes in Laravel and Rails. Specifically things like their middleware setup, many-to-many automated relationships, and service providers. Side note: Elixer is freaking amazing and makes Gulp feel even more elegant. 
+
+# Installation
+
+ - clone down the repository
+ - composter install
+ - php artisan migrate:refresh --seed 
+ - php artisan serve 
+ - enjoy! 
+ - Or just go check out the live demo 
+
+# Getting Started 
+
+You can view the home index of published articles as a guest but for everything else you'll need to make an account. There's no need for a mailer right now so the email field is only to log in with, no verification. 
+
+## publishing articles
+
+<img src="http://i.imgur.com/hcbAkFG.png?1"> 
+
+- The publish on feature lets you choose a future date on when that article will become public
+- Tag your article! Tags on articles will be displayed and clicking them will display matching articles 
+- Articles will display a published-on date and author on the index
+
+## bookmarks and tags
+
+- You can bookmark articlesyou like which and access them via the bookmarks button on the navbar.
+- You can also see and click through tags to find related articles
+
+<img src="http://i.imgur.com/2ldTZur.png?1"> 
+
+### Advanced
+
+Loom's customization will always continue to improve 
+
+<img src="http://i.imgur.com/s3GKWnG.png">
+
+- Fully functional gutter with linting 
+- auto-closing tags
+- soft tabs & tab size
+- adjustable font size 
+
+# Technologies :floppy_disk:
+
+Front-end: 
+- Bootstrap
+- Blade
+- jQuery
+- Sass
+- Gulp + Elixer
+
+Back-end: 
+- Laravel
+- Postgresql 
+
+Notable libraries and modules: 
+- Illuminate / Http 
+- Faker
+
+
+# :coffee::coffee::coffee: TODO :coffee::coffee::coffee:
+- [ ] More robust tagging 
+- [ ] Interface facelift and UX fixes
+- [ ] More features for articles
+
+## :rotating_light: Known Issues  :rotating_light:
+
