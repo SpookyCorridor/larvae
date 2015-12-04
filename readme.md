@@ -29,6 +29,8 @@ This is a demo app I created in order to help myself learn Laravel. It allows yo
 
 What better way to learn PHP and Laravel than to just dive right in? Larvae has a bunch of cool features like publishing dates, tags, bookmarks, and a highlight feature for the latest article. Going through this project gave me a better understanding of "magic" that happens behind the scenes in Laravel and Rails. Specifically things like their middleware setup, many-to-many automated relationships, and service providers. Side note: Elixer is freaking amazing and makes Gulp feel even more elegant. 
 
+I think my biggest hurdle on this project was actually managing to get it properly deployed somewhere. Most tutorials are only pieces of the puzzle and for outdated versions of Laravel. Now that I've figured it out though it's pretty easy to manage. 
+
 # Installation
 
  - clone down the repository
@@ -55,7 +57,7 @@ You can view the home index of published articles as a guest but for everything 
 - You can bookmark articlesyou like which and access them via the bookmarks button on the navbar.
 - You can also see and click through tags to find related articles
 
-<img src="http://i.imgur.com/2ldTZur.png?1"> 
+<img src="http://i.imgur.com/wzOxQ7P.png?1"> 
 
 # Technologies :floppy_disk:
 
